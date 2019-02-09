@@ -1,55 +1,34 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import logoAvalith from './avalith.png';
-import './App.css';
+import './App.scss';
+import Navbar from './components/Navbar/Navbar';
+import Drawer from "./components/Drawer/Drawer";
+import Content from "./components/Content/Content";
+
+{/*import Drawer from './components/Drawer';*/
+}
+{/*import Navbar from './components/Navbar';*/
+}
 
 class App extends Component {
+
+    constructor() {
+        super();
+    }
+
     render() {
         return (
             <div className="App">
 
-                <nav class="navbar navbar-light bg-dark">
-                    <a class="navbar-brand" href="#">
-                        <img src={logoAvalith} width="30" height="30" class="d-inline-block align-top" alt=""/>
-
-                    </a>
-                </nav>
-
+                <Navbar/>
 
                 <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-sm-3 drawer">
-
-
-                            <div className="sections">
-
-                                <div className="mt-5">
-                                    <input className="form-control" type="text" placeholder="Search in cards"
-                                           aria-label="Search"/>
-                                </div>
-
-                                <p className="mt-4">Filter by</p>
-
-                                <div className="list-group drawer-list">
-                                    <label className="radio-inline">
-                                        <input type="radio" name="optradio" checked/>Frontend
-                                    </label>
-                                </div>
-
-                                <div className="list-group drawer-list">
-                                    <label className="radio-inline">
-                                        <input type="radio" name="optradio" checked/>Backend
-                                    </label>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    <Drawer/>
+                    <Content/>
                 </div>
 
             </div>
-    );
+        );
     }
-    }
+}
 
-    export default App;
+export default App;
