@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Drawer.scss';
-import logoAvalith from '../Drawer/avalith.png';
+import logoAvalith from './/avalith.png';
 
 export default class Drawer extends Component{
 
