@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import Card from "./Card/Card";
+import Card from "./CardContent/Card/Card";
 import './Content.scss';
 import jsonParsed from '../../json'
+import CardContent from "./CardContent/CardContent";
+import PostContent from "./PostContent/PostContent";
 
 export default class Content extends Component{
 
@@ -9,7 +11,7 @@ export default class Content extends Component{
         super();
 
         this.state = {
-            obj: jsonParsed,
+
         }
     }
 
@@ -17,12 +19,8 @@ export default class Content extends Component{
         return(
             <div className="content-page">
                 <h2>Languages & technologies</h2>
-                <div className="content-cards card-columns">
-                    {this.state.obj.map((ob,i) => {
-                        return (<Card key={i} currentCard={ob}/>);
-                    })}
-
-                </div>
+                <CardContent/>
+                {/*<PostContent/>*/}
             </div>
         );
     }

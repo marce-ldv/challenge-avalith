@@ -12,9 +12,6 @@ export default class Card extends Component{
             cardDescription: '',
             cardTechnology: '',
             cardImageUrl: '',
-            cardGraph: {
-                
-            }
         }
     }
 

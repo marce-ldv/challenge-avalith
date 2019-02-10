@@ -14,22 +14,41 @@
     .logo-drawer{
         width: 30px;
         margin-left: 15px;
+        margin-top: 10px;
         position: fixed;
         top: 0;
         left: 0;
     }
 
     .drawer-data {
-        background: #6e7071;
-        list-style: none;
-        text-decoration: none;
-        text-align: center;
-        color: #000000;
+        background: $background-drawer-data;
+
+        color: $color-font-drawer-data;
         height: 100px;
         margin-top: 50px;
+        position: relative;
+
+        .drawer-li {
+            padding-top: 15px;
+            font-size: 15px;
+            list-style: none;
+            text-decoration: none;
+            text-align: center;
+        }
+    }
+
+    .search-custom{
+        padding-top: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    p{
+        margin-left: 15px;
     }
 
     input[type=radio] {
+        margin-left: 15px;
         border: 0;
         width: 20px;
     }

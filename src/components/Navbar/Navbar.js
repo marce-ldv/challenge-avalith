@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Nabvar.scss';
 
 class Navbar extends Component{
 
@@ -8,8 +9,8 @@ class Navbar extends Component{
 
     render(){
         return(
-            <div className="Navbar">
-                <nav className="navbar navbar-light bg-dark">
+            <div>
+                <nav className="nav-custom">
 
                 </nav>
             </div>

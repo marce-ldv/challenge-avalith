@@ -33,15 +33,15 @@ export default class Drawer extends Component{
             <div className={this.state.hideClass + " drawer"}>
                 <input type="image" src={logoAvalith} onClick={this.toggleDrawer} className="logo-drawer" />
 
-                <div className="list-unstyled drawer-data">
-                    <ul>
+                <div className="drawer-data">
+                    <ul className="drawer-li">
                         <li>MARCELO LUDOVINO</li>
                         <li>DNI 40.344.482</li>
                         <li>21 YEARS OLD</li>
                     </ul>
                 </div>
 
-                <div className="mt-5">
+                <div className="search-custom">
                     <input className="form-control" type="text" placeholder="Search in cards"
                            aria-label="Search"/>
                 </div>
