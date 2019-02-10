@@ -9,9 +9,11 @@ export default class Drawer extends Component{
 
         this.state = {
             hideClass: '',
+            selectedOption: 'Frontend',
         };
 
         this.toggleDrawer = this.toggleDrawer.bind(this);
+        this.handleOptionChange = this.handleOptionChange.bind(this);
     }
 
     toggleDrawer(){
@@ -26,6 +28,12 @@ export default class Drawer extends Component{
             });
         }
 
+    }
+    // https://react.tips/radio-buttons-in-react-16/
+    handleOptionChange(e){
+        this.setState({
+            selectedOption: e.target.value,
+        });
     }
 
     render(){
@@ -50,13 +58,25 @@ export default class Drawer extends Component{
 
                 <div className="list-group drawer-list">
                     <label className="radio-inline">
-                        <input type="radio" name="optradio" checked/>Frontend
+                        <input
+                            type="radio"
+                            name="optradio"
+                            value="Frontend"
+                            checked={this.state.selectedOption === 'Frontend'}
+                            onChange={this.handleOptionChange}
+                        />Frontend
                     </label>
                 </div>
 
                 <div className="list-group drawer-list">
                     <label className="radio-inline">
-                        <input type="radio" name="optradio" checked/>Backend
+                        <input
+                            type="radio"
+                            name="optradio"
+                            value="Backend"
+                            checked={this.state.selectedOption === 'Backend'}
+                            onChange={this.handleOptionChange}
+                        />Backend
                     </label>
                 </div>
             </div>

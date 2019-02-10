@@ -6,6 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 
 
+// https://blog.pshrmn.com/entry/simple-react-router-v4-tutorial/
+
 ReactDOM.render((
     <BrowserRouter>
         <App />

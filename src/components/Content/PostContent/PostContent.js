@@ -13,6 +13,8 @@ export default class PostContent extends Component{
         }
     }
 
+    // https://www.chartjs.org/docs/latest/charts/doughnut.html
+
     render(){
         return(
             <div>

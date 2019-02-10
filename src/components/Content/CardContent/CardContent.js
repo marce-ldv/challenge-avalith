@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import jsonParsed from "../../../json";
+import jsonParsed from "../../../database/json";
 import Card from "./Card/Card";
 import './CardContent.scss';
 
