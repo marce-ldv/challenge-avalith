@@ -8,7 +8,7 @@ export default class Drawer extends Component{
         super();
 
         this.state = {
-            hideClass: 'hide-drawer'
+            hideClass: '',
         };
 
         this.toggleDrawer = this.toggleDrawer.bind(this);
@@ -16,12 +16,22 @@ export default class Drawer extends Component{
 
     toggleDrawer(){
 
+        if(this.state.hideClass === 'hide-drawer'){
+            this.setState({
+                hideClass: '',
+            });
+        }else{
+            this.setState({
+                hideClass: 'hide-drawer',
+            });
+        }
+
     }
 
     render(){
         return(
             <div className={this.state.hideClass + " drawer"}>
-                <input type="image" src={logoAvalith} className="logo-drawer" />
+                <input type="image" src={logoAvalith} onClick={this.toggleDrawer} className="logo-drawer" />
 
                 <div className="list-unstyled drawer-data">
                     <ul>

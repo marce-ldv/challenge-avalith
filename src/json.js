@@ -1,4 +1,4 @@
-const jsonjs = `
+const jsonjs = `[
     {
         "cardId": 1,
         "cardTitle": "JavaScript",

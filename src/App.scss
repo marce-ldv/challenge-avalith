@@ -1,6 +1,5 @@
 //Colors
-$drawer-background: #000000;
-
+@import "./variables";
 * {
     color: #ffffff;
     margin: 0;
@@ -10,6 +9,12 @@ $drawer-background: #000000;
 .content-page{
     background: #dee5e9;
     color: $drawer-background;
+    padding-bottom: 20px;
+}
+
+.container-fluid{
+    padding-left: 0;
+    padding-right: 0;
 }
 
 

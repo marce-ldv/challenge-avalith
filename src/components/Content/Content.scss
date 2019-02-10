@@ -1,0 +1,17 @@
+@import "../../variables";
+
+.content-page{
+
+  .content-cards{
+    /*display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    */
+  }
+}
+
+@media #{ $desktop } {
+  .content-page{
+    margin-left: 250px;
+  }
+}

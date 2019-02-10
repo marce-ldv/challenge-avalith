@@ -4,8 +4,8 @@ import jslogo from './jslogo.png';
 
 export default class Card extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
         this.state = {
             cardTitle: '',
@@ -20,10 +20,13 @@ export default class Card extends Component{
 
     render(){
         return(
-            <div className="card" id="card-father">
-                <img className="card-img-top" id="img-card" src={jslogo} alt="Card image cap"/>
+            <div className="card">
+                    <img className="card-img-top img-card" src={this.props.currentCard.cardImageUrl} alt="Card image cap"/>
                 <div className="card-body">
-                    <p className="card-text" id="card-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi, aperiam aspernatur atque aut consequatur dignissimos distinctio earum modi, nostrum, numquam quis reiciendis sit ullam voluptates. Ad eaque laborum quas!</p>
+                    <p className="card-text card-content">
+                        {/*this.props.currentCard ? this.props.currentCard.cardDescription : '' */}
+                        {this.props.currentCard.cardDescription}
+                    </p>
                 </div>
             </div>
         );
