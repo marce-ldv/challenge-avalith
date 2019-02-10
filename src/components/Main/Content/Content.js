@@ -9,7 +9,7 @@ export default class Content extends Component{
         return(
             <div className="content-page">
                 <h2>Languages & technologies</h2>
-                <CardContent/>
+                <CardContent currentTechnology={this.props.currentTechnology}/>
                 {/*<PostContent/>*/}
             </div>
         );

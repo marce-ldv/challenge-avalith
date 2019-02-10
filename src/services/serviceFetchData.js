@@ -9,7 +9,7 @@ export default {
     },
 
     fetchFilter(cardTechnology){
-        const result = jsonData.filter(obj =>
+        return jsonData.filter(obj =>
             obj.cardTechnology.includes(cardTechnology));
     },
 }

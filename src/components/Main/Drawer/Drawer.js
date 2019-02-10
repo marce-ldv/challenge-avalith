@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Drawer.scss';
-import logoAvalith from './/avalith.png';
+import logoAvalith from './avalith.png';
 
 export default class Drawer extends Component{
 
@@ -9,7 +9,7 @@ export default class Drawer extends Component{
 
         this.state = {
             hideClass: '',
-            selectedOption: 'Frontend',
+            selectedOption: '',
         };
 
         this.toggleDrawer = this.toggleDrawer.bind(this);
@@ -30,16 +30,18 @@ export default class Drawer extends Component{
 
     }
     // https://react.tips/radio-buttons-in-react-16/
-    handleOptionChange(e){
-        this.setState({
+    /*Va a esperar setear primero el estado, y una vez seteado va a continuar el flujo de la app*/
+    async handleOptionChange(e){
+        await this.setState({
             selectedOption: e.target.value,
         });
+        this.props.toggleCardTechnology(this.state.selectedOption);
     }
 
     render(){
         return(
             <div className={this.state.hideClass + " drawer"}>
-                <input type="image" src={logoAvalith} onClick={this.toggleDrawer} className="logo-drawer" />
+                <input type="image" src={logoAvalith} onClick={this.toggleDrawer} className="logo-drawer" alt="logo avalith"/>
 
                 <div className="drawer-data">
                     <ul className="drawer-li">

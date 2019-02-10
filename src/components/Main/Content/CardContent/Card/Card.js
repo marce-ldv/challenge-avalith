@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './Card.scss';
-import jslogo from './jslogo.png';
 
 export default class Card extends Component{
 
@@ -18,7 +17,7 @@ export default class Card extends Component{
     render(){
         return(
             <div className="card">
-                    <img className="card-img-top img-card" src={this.props.currentCard.cardImageUrl} alt="Card image cap"/>
+                    <img className="card-img-top img-card" src={this.props.currentCard.cardImageUrl} alt="Card"/>
                 <div className="card-body">
                     <p className="card-text card-content">
                         {/*this.props.currentCard ? this.props.currentCard.cardDescription : '' */}

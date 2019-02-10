@@ -3,10 +3,6 @@ import './Nabvar.scss';
 
 class Navbar extends Component{
 
-    constructor(){
-        super();
-    }
-
     render(){
         return(
             <div>
