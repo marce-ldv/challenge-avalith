@@ -35,7 +35,7 @@ export default class CardContent extends Component {
             this.setState({
                 listCard: listCard,
                 listCardFilteredText: arrayFiltered,
-                animateClass: 'content-cards card-columns flex-container animated bounce delay-2s',
+                animateClass: 'content-cards card-columns flex-container animated fadeInRight',
             });
         }
 
