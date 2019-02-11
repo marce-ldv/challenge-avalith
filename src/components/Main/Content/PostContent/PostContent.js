@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import './PostContent.scss';
 import serviceFetchData from '../../../../services/serviceFetchData';
-import Drawer from "../../Drawer/Drawer";
-//var DoughnutChart = require("react-chartjs").Doughnut; //ES5
-//import { Doughnut } from 'react-chart.js'; //ES6
+// const DoughnutChart = require("react-chartjs").Doughnut; //ES5
+// import { Doughnut } from 'react-chart.js'; //ES6
+// import { Chart } from 'chart.js';
+const Chart = require('chart.js');
 
 export default class PostContent extends Component {
 
@@ -17,13 +18,36 @@ export default class PostContent extends Component {
 
         this.state = {
             serviceData: cardObj,
-        }
+            data: [10, 20, 30],
+        };
+
+        this.makeChart = this.makeChart.bind(this);
+        this.linkToDashboard = this.linkToDashboard(this);
     }
 
     // This component never will rendered
     componentWillUnmount(){
 
     }
+
+    makeChart() {
+        this.setState({ data: [10, 20, 30] });
+        let ctx = document.getElementById("chart");
+        let myChart = new Chart(ctx, {
+            type: 'pie',
+            data: [10, 20, 30],
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+        //console.log(myChart.data);
+    }
+
+    linkToDashboard(){
+        //this.props.history.push('/');
+    }
+
 
     // https://www.chartjs.org/docs/latest/charts/doughnut.html
 
@@ -33,7 +57,10 @@ export default class PostContent extends Component {
                 <div className="container-fluid cont-jumbotron">
                     {/*<img src={this.state.serviceData.cardPost.postImageUrl} alt="dev"/>*/}
                     <div className="img-jumbotron">
-                        {/*<button className="btn btn-primary button-back">Go back</button>*/}
+                        {/*<button
+                            className="btn btn-primary button-back"
+                            onClick={this.linkToDashboard}
+                        >Go back</button>*/}
                         <img src="https://dummyimage.com/1366x768/000/fff" alt="dev"/>
                     </div>
                 </div>
@@ -63,15 +90,22 @@ export default class PostContent extends Component {
                             and respective standard libraries, the two languages are distinct and differ greatly in
                             design; JavaScript was influenced by programming languages such as Self and Scheme.
                         </div>
-                        <div className="col-sm-4 graphic">
+                        <div className="col-sm-4 graphi c">
                             <h4>JavaScript Development</h4>
-                            <h4>graphic goes here</h4>
+                            <canvas id="chart">
+                                {this.makeChart}
+                            </canvas>
                         </div>
                     </div>
                 </div>
                 {/*<h2>{this.state.serviceData.cardPost.postTitle}</h2>*/}
                 {/*Pie Chart*/}
                 {/*<canvas id="pieChart" width="400" height="400"></canvas>*/}
+
+                <button
+                    className="btn btn-primary button-back"
+                    onClick={this.linkToDashboard}
+                >Go back</button>
 
             </div>
         );

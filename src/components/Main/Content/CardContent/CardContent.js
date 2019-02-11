@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Card from "./Card/Card";
 import './CardContent.scss';
 import serviceFetchData from '../../../../services/serviceFetchData';
-import animatecss from 'animate.css';
+import 'animate.css';
 
 export default class CardContent extends Component {
 
