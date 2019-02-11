@@ -34,6 +34,14 @@ export default class Drawer extends Component{
     // https://react.tips/radio-buttons-in-react-16/
     /*Va a esperar setear primero el estado, y una vez seteado va a continuar el flujo de la app*/
     async handleOptionChange(e){
+        /*
+        this.setSate(state => {}, () => {
+            this.setState({
+                selectedOption: e.target.value,
+            });
+        });
+        */
+
         await this.setState({
             selectedOption: e.target.value,
         });

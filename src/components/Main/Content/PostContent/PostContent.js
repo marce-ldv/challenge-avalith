@@ -11,18 +11,20 @@ export default class PostContent extends Component {
     constructor(props) {
         super(props);
 
-        let serviceDataF = serviceFetchData.fetchAllData();
-        let cardObj = serviceDataF.find((elem) => {
-            return (elem.cardId === props.match.params.id);
-        });
-
         this.state = {
-            serviceData: cardObj,
+            serviceData: [],
             data: [10, 20, 30],
         };
 
         this.makeChart = this.makeChart.bind(this);
         this.linkToDashboard = this.linkToDashboard(this);
+    }
+
+    componentDidMount(){
+        let serviceData = serviceFetchData.fetchAllData();
+        let cardObj = serviceData.find(elem => elem.cardId === this.props.match.params.id);
+
+        this.setState({ serviceData })
     }
 
     // This component never will rendered
@@ -90,7 +92,7 @@ export default class PostContent extends Component {
                             and respective standard libraries, the two languages are distinct and differ greatly in
                             design; JavaScript was influenced by programming languages such as Self and Scheme.
                         </div>
-                        <div className="col-sm-4 graphi c">
+                        <div className="col-sm-4 graphic">
                             <h4>JavaScript Development</h4>
                             <canvas id="chart">
                                 {this.makeChart}
