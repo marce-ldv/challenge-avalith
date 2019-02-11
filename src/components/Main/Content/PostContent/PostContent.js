@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
 import './PostContent.scss';
+import serviceFetchData from '../../../../services/serviceFetchData';
 
 export default class PostContent extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+
+        let serviceDataF = serviceFetchData.fetchAllData();
+        let cardObj = serviceDataF.find( (elem) => {
+            return(elem.cardId === props.match.params.id);
+        });
 
         this.state = {
-            postTitle: '',
-            postImageUrl: '',
-            postDescription: '',
+            serviceData: cardObj,
         }
     }
 
@@ -18,9 +22,8 @@ export default class PostContent extends Component{
     render(){
         return(
             <div>
-                {/*PostContent Design*/}
                 <h2>helllo i'm post</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur consequuntur cum distinctio dolore ducimus earum enim eum ex exercitationem, id, natus nihil omnis qui quo repellat rerum soluta tempora.</p>
+                {/*<h2>{this.state.serviceData.cardPost.postTitle}</h2>*/}
             </div>
         );
     }

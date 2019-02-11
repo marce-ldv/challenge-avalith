@@ -10,7 +10,7 @@ export default class Card extends Component{
     }
 
     linkToPost(){
-        this.props.history.push('/post/1');
+        this.props.history.push('/post/'+this.props.currentCard.cardId);
     }
 
     render(){
