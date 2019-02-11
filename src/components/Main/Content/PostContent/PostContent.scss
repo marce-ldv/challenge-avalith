@@ -1,8 +1,35 @@
 @import "../../../../variables";
 
-.img-jumbotron {
-  img {
-    height: 100%;
-    top: 0;
+.cont-jumbotron{
+  .img-jumbotron {
+    img {
+      width: 100%;
+      height: 130px;
+      position: relative;
+    }
+
+    .cont-jumbotron .btn{
+      background: red;
+      position: absolute;
+      cursor: pointer;
+    }
   }
 }
+
+
+
+.desc-cont-post{
+
+  margin-top: 30px;
+
+  .description{
+    display: flex;
+    justify-content: center;
+    color: $drawer-background;
+  }
+
+  .graphic{
+    color: $drawer-background;
+  }
+}
+

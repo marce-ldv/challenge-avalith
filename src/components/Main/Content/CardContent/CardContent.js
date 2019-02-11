@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Card from "./Card/Card";
 import './CardContent.scss';
 import serviceFetchData from '../../../../services/serviceFetchData';
+import animatecss from 'animate.css';
 
 export default class CardContent extends Component {
 
@@ -11,10 +12,11 @@ export default class CardContent extends Component {
         this.state = {
             listCard: serviceFetchData.fetchAllData(),
             listCardFilteredText: serviceFetchData.fetchAllData(),
+            animateClass: 'content-cards card-columns flex-container',
         }
     }
 
-    filterByText(arrayToSearch, textEntry){
+    filterByText(arrayToSearch, textEntry) {
         return arrayToSearch.filter(ob => {
             return (
                 ob.cardTitle.includes(textEntry) || ob.cardDescription.includes(textEntry)
@@ -23,21 +25,22 @@ export default class CardContent extends Component {
 
     }
 
-    componentDidUpdate(prevProps){
+    componentDidUpdate(prevProps) {
 
-        if(this.props.currentTechnology !== prevProps.currentTechnology){
+        if (this.props.currentTechnology !== prevProps.currentTechnology) {
 
             let listCard = serviceFetchData.fetchFilter(this.props.currentTechnology);
-            let arrayFiltered = this.filterByText(listCard,this.props.searchData);
+            let arrayFiltered = this.filterByText(listCard, this.props.searchData);
 
             this.setState({
                 listCard: listCard,
                 listCardFilteredText: arrayFiltered,
+                animateClass: 'content-cards card-columns flex-container animated bounce delay-2s',
             });
         }
 
-        if(this.props.searchData !== prevProps.searchData){
-            let arrayFiltered = this.filterByText(this.state.listCard,this.props.searchData);
+        if (this.props.searchData !== prevProps.searchData) {
+            let arrayFiltered = this.filterByText(this.state.listCard, this.props.searchData);
             //console.log(arrayFiltered);
 
             this.setState({
@@ -51,18 +54,22 @@ export default class CardContent extends Component {
 
     render() {
         return (
-            <div className="content-cards card-columns">
-                {/*<div className="header-title">
+            <div className="card-content-container">
+                <div className="header-title">
+                    <h2 className="animated fadeInRight delay-1s">LANGUAGES AND TECHNOLOGIES</h2>
+                </div>
+                <div className={this.state.animateClass}>
 
-                </div>*/}
-                {this.state.listCardFilteredText.map((ob, i) => {
-                    return (<Card
-                        key={i}
-                        currentCard={ob}
-                        {...this.props}
-                    />);
-                })}
 
+                    {this.state.listCardFilteredText.map((ob, i) => {
+                        return (<Card
+                            key={i}
+                            currentCard={ob}
+                            {...this.props}
+                        />);
+                    })}
+
+                </div>
             </div>
         );
     }

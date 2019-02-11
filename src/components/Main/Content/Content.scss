@@ -4,12 +4,20 @@
 
 .content-page{
 
+  .header-title{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    width: 100%;
+    color: $drawer-background;
+    font-style: inherit;
+  }
 
   .content-cards{
     /*display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
     */
+
   }
 }
 
