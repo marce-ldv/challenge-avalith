@@ -24,7 +24,9 @@ export default class PostContent extends Component {
         let serviceData = serviceFetchData.fetchAllData();
         let cardObj = serviceData.find(elem => elem.cardId === this.props.match.params.id);
 
-        this.setState({ serviceData })
+        this.setState({
+            serviceData,
+        })
     }
 
     // This component never will rendered
@@ -47,9 +49,9 @@ export default class PostContent extends Component {
     }
 
     linkToDashboard(){
+        //alert('Not implement yet..')
         //this.props.history.push('/');
     }
-
 
     // https://www.chartjs.org/docs/latest/charts/doughnut.html
 
@@ -104,10 +106,10 @@ export default class PostContent extends Component {
                 {/*Pie Chart*/}
                 {/*<canvas id="pieChart" width="400" height="400"></canvas>*/}
 
-                <button
+                {/*<button
                     className="btn btn-primary button-back"
                     onClick={this.linkToDashboard}
-                >Go back</button>
+                >Go back</button>*/}
 
             </div>
         );
