@@ -16,8 +16,8 @@ export default class CardContent extends Component {
 
     filterByText(arrayToSearch, textEntry){
         return arrayToSearch.filter(ob => {
-            return ( ob.cardTitle.includes(textEntry) || ob.cardTitle.includes(textEntry) || ob.cardTitle.includes(textEntry)
-                //|| ( ob.cardDescription.includes(textEntry) || ob.cardDescription.includes(textEntry) || ob.cardDescription.includes(textEntry)
+            return (
+                ob.cardTitle.includes(textEntry) || ob.cardDescription.includes(textEntry)
             );
         });
 
@@ -56,7 +56,11 @@ export default class CardContent extends Component {
 
                 </div>*/}
                 {this.state.listCardFilteredText.map((ob, i) => {
-                    return (<Card key={i} currentCard={ob}/>);
+                    return (<Card
+                        key={i}
+                        currentCard={ob}
+                        {...this.props}
+                    />);
                 })}
 
             </div>

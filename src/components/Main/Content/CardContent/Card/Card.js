@@ -6,18 +6,17 @@ export default class Card extends Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            cardTitle: '',
-            cardDescription: '',
-            cardTechnology: '',
-            cardImageUrl: '',
-        }
+        this.linkToPost = this.linkToPost.bind(this);
+    }
+
+    linkToPost(){
+        this.props.history.push('/post/1');
     }
 
     render(){
         return(
             <div className="card">
-                    <img className="card-img-top img-card" src={this.props.currentCard.cardImageUrl} alt="Card"/>
+                    <img className="card-img-top img-card" onClick={this.linkToPost} src={this.props.currentCard.cardImageUrl} alt="Card"/>
                 <div className="card-body">
                     <p className="card-text card-content">
                         {/*this.props.currentCard ? this.props.currentCard.cardDescription : '' */}
