@@ -7,7 +7,20 @@
 }
 
 .content-page{
-    background: $background-global;
+    // background: $background-global; //flexible background, replace to img
+
+    // image to use
+    background-image: url("bgflex.png");
+
+    // set height
+    height: 100%;
+
+    // create effect paralaxx scrolling
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
     color: $drawer-background;
     padding-bottom: 20px;
 }
