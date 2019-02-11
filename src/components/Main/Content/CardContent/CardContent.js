@@ -10,19 +10,43 @@ export default class CardContent extends Component {
 
         this.state = {
             listCard: serviceFetchData.fetchAllData(),
+            listCardFilteredText: serviceFetchData.fetchAllData(),
         }
+    }
+
+    filterByText(arrayToSearch, textEntry){
+        return arrayToSearch.filter(ob => {
+            return ( ob.cardTitle.includes(textEntry) || ob.cardTitle.includes(textEntry) || ob.cardTitle.includes(textEntry)
+                //|| ( ob.cardDescription.includes(textEntry) || ob.cardDescription.includes(textEntry) || ob.cardDescription.includes(textEntry)
+            );
+        });
+
     }
 
     componentDidUpdate(prevProps){
 
         if(this.props.currentTechnology !== prevProps.currentTechnology){
-            const listCard = serviceFetchData.fetchFilter(this.props.currentTechnology);
-            console.log(listCard);
+
+            let listCard = serviceFetchData.fetchFilter(this.props.currentTechnology);
+            let arrayFiltered = this.filterByText(listCard,this.props.searchData);
+
             this.setState({
-                listCard
+                listCard: listCard,
+                listCardFilteredText: arrayFiltered,
             });
         }
 
+        if(this.props.searchData !== prevProps.searchData){
+            let arrayFiltered = this.filterByText(this.state.listCard,this.props.searchData);
+            //console.log(arrayFiltered);
+
+            this.setState({
+                listCardFilteredText: arrayFiltered,
+            });
+        }
+
+        //let textSearched = this.filterByText;
+        //console.log(`adsdasads ${textSearched}  asddasdas`);
     }
 
     render() {
@@ -31,8 +55,7 @@ export default class CardContent extends Component {
                 {/*<div className="header-title">
 
                 </div>*/}
-                <div>{this.props.currentTechnology}</div>
-                {this.state.listCard.map((ob, i) => {
+                {this.state.listCardFilteredText.map((ob, i) => {
                     return (<Card key={i} currentCard={ob}/>);
                 })}
 

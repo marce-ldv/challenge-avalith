@@ -10,15 +10,23 @@ export default class Main extends Component {
         super();
 
         this.state = {
-            cardTechnology: 'Frontend'
+            cardTechnology: 'Frontend',
+            searchData: '',
         };
 
         this.toggleCardTechnology = this.toggleCardTechnology.bind(this);
+        this.handleChangeSearchState = this.handleChangeSearchState.bind(this);
     }
 
     toggleCardTechnology(cardTechnology){
         this.setState({
             cardTechnology //ES6 <--    ES5 -> cardTechnology: cardTechnology
+        });
+    }
+
+    handleChangeSearchState(data){
+        this.setState({
+            searchData: data,
         });
     }
 
@@ -29,8 +37,14 @@ export default class Main extends Component {
                 <Navbar/>
 
                 <div className="container-fluid">
-                    <Drawer toggleCardTechnology={this.toggleCardTechnology}/>
-                    <Content currentTechnology={this.state.cardTechnology}/>
+                    <Drawer
+                        toggleCardTechnology={this.toggleCardTechnology}
+                        handleChangeSearchState={this.handleChangeSearchState}
+                    />
+                    <Content
+                        currentTechnology={this.state.cardTechnology}
+                        searchData={this.state.searchData}
+                    />
                 </div>
 
             </div>

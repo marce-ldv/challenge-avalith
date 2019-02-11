@@ -9,7 +9,11 @@ export default class Content extends Component{
         return(
             <div className="content-page">
                 <h2>Languages & technologies</h2>
-                <CardContent currentTechnology={this.props.currentTechnology}/>
+                <CardContent
+                    currentTechnology={this.props.currentTechnology}
+                    handleChangeSearchState={this.props.handleChangeSearchState}
+                    searchData={this.props.searchData}
+                />
                 {/*<PostContent/>*/}
             </div>
         );

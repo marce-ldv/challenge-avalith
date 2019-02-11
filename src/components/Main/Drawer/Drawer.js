@@ -4,16 +4,18 @@ import logoAvalith from './avalith.png';
 
 export default class Drawer extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
         this.state = {
             hideClass: '',
             selectedOption: '',
+            searchData: '',
         };
 
         this.toggleDrawer = this.toggleDrawer.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     toggleDrawer(){
@@ -38,6 +40,11 @@ export default class Drawer extends Component{
         this.props.toggleCardTechnology(this.state.selectedOption);
     }
 
+    handleChange(e){
+        let searchData = e.target.value;
+        this.props.handleChangeSearchState(searchData);
+    }
+
     render(){
         return(
             <div className={this.state.hideClass + " drawer"}>
@@ -52,8 +59,11 @@ export default class Drawer extends Component{
                 </div>
 
                 <div className="search-custom">
-                    <input className="form-control" type="text" placeholder="Search in cards"
-                           aria-label="Search"/>
+                    <input className="form-control"
+                           type="text"
+                           placeholder="Search in cards"
+                           aria-label="Search"
+                           onChange={this.handleChange}/>
                 </div>
 
                 <p className="mt-4">Filter by</p>
