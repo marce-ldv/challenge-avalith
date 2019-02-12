@@ -15,7 +15,7 @@ export default class Card extends Component{
 
     render(){
         return(
-            <div className="card">
+            <div className="card animated zoomIn">
                     <img className="card-img-top img-card" onClick={this.linkToPost} src={this.props.currentCard.cardImageUrl} alt="Card"/>
                 <div className="card-body">
                     <p className="card-text card-content">

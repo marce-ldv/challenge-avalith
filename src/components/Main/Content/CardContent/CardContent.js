@@ -12,7 +12,6 @@ export default class CardContent extends Component {
         this.state = {
             listCard: serviceFetchData.fetchAllData(),
             listCardFilteredText: serviceFetchData.fetchAllData(),
-            animateClass: 'content-cards card-columns flex-container',
         }
     }
 
@@ -35,7 +34,6 @@ export default class CardContent extends Component {
             this.setState({
                 listCard: listCard,
                 listCardFilteredText: arrayFiltered,
-                animateClass: 'content-cards card-columns flex-container animated fadeInRight',
             });
         }
 
@@ -58,7 +56,7 @@ export default class CardContent extends Component {
                 <div className="header-title">
                     <h2 className="animated fadeInRight delay-1s">LANGUAGES AND TECHNOLOGIES</h2>
                 </div>
-                <div className={this.state.animateClass}>
+                <div className="content-cards card-columns flex-container">
 
 
                     {this.state.listCardFilteredText.map((ob, i) => {
