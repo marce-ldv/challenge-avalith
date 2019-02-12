@@ -32,6 +32,7 @@ export default class PostContent extends Component {
     // This component never will rendered
     componentWillUnmount(){
 
+
     }
 
     makeChart() {
