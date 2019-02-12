@@ -4,7 +4,7 @@ import serviceFetchData from '../../../../services/serviceFetchData';
 // const DoughnutChart = require("react-chartjs").Doughnut; //ES5
 // import { Doughnut } from 'react-chart.js'; //ES6
 // import { Chart } from 'chart.js';
-const Chart = require('chart.js');
+import Chart from'chart.js';
 
 export default class PostContent extends Component {
 
@@ -26,7 +26,9 @@ export default class PostContent extends Component {
 
         this.setState({
             serviceData,
-        })
+        });
+
+        this.makeChart();
     }
 
     // This component never will rendered
@@ -36,17 +38,36 @@ export default class PostContent extends Component {
     }
 
     makeChart() {
-        this.setState({ data: [10, 20, 30] });
         let ctx = document.getElementById("chart");
-        let myChart = new Chart(ctx, {
-            type: 'pie',
-            data: [10, 20, 30],
+        let myDoughnutChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [40, 10, 50],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }],
+                labels: [
+                    'Red',
+                    'Blue',
+                    'Yellow'
+                ]
+            },
             options: {
-                responsive: true,
-                maintainAspectRatio: false
+                legend: {
+                    display: false,
+                }
             }
         });
-        //console.log(myChart.data);
     }
 
     linkToDashboard(){
@@ -97,7 +118,7 @@ export default class PostContent extends Component {
                         </div>
                         <div className="col-sm-4 graphic">
                             <h4>JavaScript Development</h4>
-                            <canvas id="chart">
+                            <canvas className="chart" id="chart">
                                 {this.makeChart}
                             </canvas>
                         </div>
