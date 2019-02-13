@@ -12,4 +12,9 @@ export default {
         return jsonData.filter(obj =>
             obj.cardTechnology.includes(cardTechnology));
     },
+
+    fetchById(id){
+        id = parseInt(id);
+        return jsonData.find(elem => elem.cardId === id);
+    }
 }

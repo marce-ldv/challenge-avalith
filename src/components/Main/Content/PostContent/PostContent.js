@@ -10,10 +10,10 @@ export default class PostContent extends Component {
 
     constructor(props) {
         super(props);
+        let obj = serviceFetchData.fetchById(this.props.match.params.id);
 
         this.state = {
-            serviceData: [],
-            data: [10, 20, 30],
+            obj,
         };
 
         this.makeChart = this.makeChart.bind(this);
@@ -21,12 +21,7 @@ export default class PostContent extends Component {
     }
 
     componentDidMount(){
-        let serviceData = serviceFetchData.fetchAllData();
-        let cardObj = serviceData.find(elem => elem.cardId === this.props.match.params.id);
 
-        this.setState({
-            serviceData,
-        });
 
         this.makeChart();
     }
@@ -43,7 +38,7 @@ export default class PostContent extends Component {
             type: 'doughnut',
             data: {
                 datasets: [{
-                    data: [40, 10, 50],
+                    data: this.state.obj.cardGraph.data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 1)',
                         'rgba(54, 162, 235, 1)',
@@ -87,40 +82,21 @@ export default class PostContent extends Component {
                             className="btn btn-primary button-back"
                             onClick={this.linkToDashboard}
                         >Go back</button>*/}
-                        <img src="https://dummyimage.com/1366x768/000/fff" alt="dev"/>
+                        <img src={this.state.obj.cardPost.postImageUrl} alt="dev"/>
                     </div>
                 </div>
 
                 <div className="container text-center desc-cont-post">
                     <div className="row">
                         <div className="col-sm-8 description">
-                            JavaScript, often abbreviated as JS, is a high-level, dynamic, weakly typed,
-                            prototype-based, multi-paradigm, and interpreted programming language. Alongside HTML and
-                            CSS, JavaScript is one of the three core technologies of World Wide Web content production.
-                            It is used to make webpages interactive and provide online programs, including video games.
-                            The majority of websites employ it, and all modern web browsers support it without the need
-                            for plug-ins by means of a built-in JavaScript engine. Each of the many JavaScript engines
-                            represent a different implementation of JavaScript, all based on the ECMAScript
-                            specification, with some engines not supporting the spec fully, and with many engines
-                            supporting additional features beyond ECMA. As a multi-paradigm language, JavaScript
-                            supports event-driven, functional, and imperative (including object-oriented and
-                            prototype-based) programming styles. It has an API for working with text, arrays, dates,
-                            regular expressions, and basic manipulation of the DOM, but the language itself does not
-                            include any I/O, such as networking, storage, or graphics facilities, relying for these upon
-                            the host environment in which it is embedded. Initially only implemented client-side in web
-                            browsers, JavaScript engines are now embedded in many other types of host software,
-                            including server-side in web servers and databases, and in non-web programs such as word
-                            processors and PDF software, and in runtime environments that make JavaScript available for
-                            writing mobile and desktop applications, including desktop widgets. Although there are
-                            strong outward similarities between JavaScript and Java, including language name, syntax,
-                            and respective standard libraries, the two languages are distinct and differ greatly in
-                            design; JavaScript was influenced by programming languages such as Self and Scheme.
+                            {this.state.obj.cardPost.postDescription}
                         </div>
                         <div className="col-sm-4 graphic">
-                            <h4>JavaScript Development</h4>
-                            <canvas className="chart" id="chart">
-                                {this.makeChart}
-                            </canvas>
+                            <h4>{this.state.obj.cardTitle} Development</h4>
+                            <canvas
+                                className="chart"
+                                id="chart"
+                            />
                         </div>
                     </div>
                 </div>
