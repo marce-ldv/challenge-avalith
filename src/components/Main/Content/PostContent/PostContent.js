@@ -100,14 +100,11 @@ export default class PostContent extends Component {
                         </div>
                     </div>
                 </div>
-                {/*<h2>{this.state.serviceData.cardPost.postTitle}</h2>*/}
-                {/*Pie Chart*/}
-                {/*<canvas id="pieChart" width="400" height="400"></canvas>*/}
 
-                {/*<button
+                <button
                     className="btn btn-primary button-back"
                     onClick={this.linkToDashboard}
-                >Go back</button>*/}
+                >Go back</button>
 
             </div>
         );
