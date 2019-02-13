@@ -30,6 +30,7 @@ I used React JS + HTML / CSS / SASS / Bootstrap 4 technology's.
 * In first time, the app show all of cards in the flex-container.
 * You have to compile sass for the application works.
 * The Dashboard have a parallaxx effect
+* The Post Content have a parallaxx effect
 * I implemented react-router-dom
 * I use NPM and Yarn for manage my dependencies in the package.json
 
