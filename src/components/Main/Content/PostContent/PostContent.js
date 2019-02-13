@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import './PostContent.scss';
 import serviceFetchData from '../../../../services/serviceFetchData';
-// const DoughnutChart = require("react-chartjs").Doughnut; //ES5
-// import { Doughnut } from 'react-chart.js'; //ES6
-// import { Chart } from 'chart.js';
 import Chart from'chart.js';
+import { Link } from 'react-router-dom';
 
 export default class PostContent extends Component {
 
@@ -66,8 +64,7 @@ export default class PostContent extends Component {
     }
 
     linkToDashboard(){
-        //alert('Not implement yet..')
-        //this.props.history.push('/');
+
     }
 
     // https://www.chartjs.org/docs/latest/charts/doughnut.html
@@ -101,10 +98,19 @@ export default class PostContent extends Component {
                     </div>
                 </div>
 
-                <button
+                <Link to={'/'}>
+                    <button
                     className="btn btn-primary button-back"
-                    onClick={this.linkToDashboard}
-                >Go back</button>
+                    onClick={this.linkToDashboard}>
+                        Go Back
+                    </button>
+                </Link>
+
+
+
+
+
+
 
             </div>
         );
