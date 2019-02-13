@@ -19,26 +19,27 @@ I used React JS + HTML / CSS / SASS / Bootstrap 4 technology's.
 
 # App - Functionality
 
-* The App is responsive.
-* I use flexbox layout.
-* The app have in the sidebar two radio buttons for filter technology's.
+* The App is **responsive**.
+* I use **flexbox** layout.
+* The app have in the sidebar two radio buttons for **filter technology's**.
 * You can't choose 2 radio buttons in the same time.
-* The app have a seachbox, you can seek a technology (Frontend / Backend) and Description.
-* In smarthphone the sidebar can be toggled by Avalith's logo.
-* The cards do an animation when use the filter in the drawer.
-* The app have a service for fetch data from the Card.json file.
+* The app have a **search**, you can seek a technology (Frontend / Backend) and the description.
+* Warning, **The search is case sensitive**
+* In smarthphone the sidebar can be **toggled by Avalith's** logo.
+* The **cards do an animation** when use the filter in the drawer.
+* The app have a **service for fetch data** from the Card.json file.
 * In first time, the app show all of cards in the flex-container.
-* You have to compile sass for the application works.
-* The Dashboard have a parallaxx effect
-* The Post Content have a parallaxx effect
-* I implemented react-router-dom
-* I use NPM and Yarn for manage my dependencies in the package.json
+* You have to compile **SASS** for the application works.
+* The Dashboard have a **parallaxx** effect
+* The Post Content have a **parallaxx** effect
+* I implemented **react-router-dom**
+* I use **NPM** for manage my dependencies in the package.json
 
 # Enjoy !!!
 
 # Dev Information
 
-* email: marcelo.docutec@gmail.com
+* E-mail: marcelo.docutec@gmail.com
 * Linkedin: https://www.linkedin.com/in/marcelo-ludovino/
 * Github: This page
 
